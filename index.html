@@ -1,0 +1,86 @@
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <title>Mocha Tests</title>
+      <link href="lib/mocha.css" rel="stylesheet" />
+      <link href="styles.css" rel="stylesheet" />
+      
+  </head>
+  <body >
+
+
+    <!-- 👍 YOUR HTML HERE 👍 -->
+    <!-- Display the game status -->
+    <div >
+    <h2>Game Status</h2>
+      <div id="game-status">
+
+      </div>
+  </div>
+    <!-- Hero section with hero status and deatils -->
+    <div class="hero-data">
+        <h2>Hero Data</h2>
+        <form name="hero-form" onsubmit="nameChanged(); return false">
+          <div>
+            <label for="name" id="hero-name">Name</label>
+            <input type="text" id="name" placeholder=" Enter hero name">
+            <button type="submit">Enter</button> 
+          </div>
+        </form>
+        <div class="hero-function">
+            <ul>
+            <li> <img id="inn" src="images/inn.svg"  onclick="rest(hero)"> <p><cite>Rest</cite></p></li>
+            <li><img id="dagger"  src="images/daggar.svg" onclick="pickUpItem(hero,{
+              type:'dagger',
+              damage:2
+          })"><p><cite>PickupItem</cite></p></li>
+            <li><img id="bag" src="images/equipweapon.svg" onclick="equipWeapon(hero)"><p><cite>EquipWeapon</cite></p></li>
+            <li><img id="weapon" src="images/dropweapon.png" onclick="dropWeapon()"><p><cite>DropWeapon</cite></p></li>
+            <li><img id="fight" src="images/weapons.svg" onclick="fight(hero)"><p><cite>Fight</cite></p></li>
+            <!-- <li><img id="enemy" src="images/enemy.svg"><p><cite>Enemy</cite></p></li> -->
+        </ul>
+      </div>
+      <div class="hero-status-box">
+        <h3>Hero Status</h3>
+        <div class="hero-status">
+        </div>
+      </div>
+  
+    </div>
+    <!-- Enemy Section  with deatils-->
+      <div class="enemy-data">
+          <h2>Enemy Data</h2>
+
+          <div class="hero-function">
+              <ul>
+              <li><img id="enemy-fight" src="images/weapons.svg" onclick="fight(enemy)"><p><cite>Fight</cite></p></li>
+
+          </ul>
+        </div>
+
+            <div class="enemy-status-box">
+                <h3>Enemy Status</h3>
+
+                <div class="enemy-status">
+                    
+                </div>
+              </div>
+      </div>
+
+
+    <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
+    <button id="test" onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button>
+
+    <div id="mocha">
+    <!-- MOCHA TEST FEEDBACK WILL BE RENDERED HERE -->
+    </div>
+
+    <script src="lib/chai.js"></script>
+    <script src="lib/mocha.js"></script>
+    <script src="lib/sinon.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="YOUR_JAVASCRIPT_HERE.js"></script>
+    <script src="lib/game_logic.test.js"></script>
+
+  </body>
+  </html>
